@@ -4,11 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "idb": "^8.0.0",
+    "vite-plugin-pwa": "^0.20.2",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },

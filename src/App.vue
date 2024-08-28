@@ -8,6 +8,9 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
+      <NewCardForm @card-added="refreshCards" />
+      <CardList ref="cardList" />
+
       <HelloWorld msg="You did it!" />
 
       <nav>
@@ -19,6 +22,27 @@ import HelloWorld from './components/HelloWorld.vue'
 
   <RouterView />
 </template>
+
+<script>
+import NewCardForm from './components/NewCardForm.vue';
+import CardList from './components/CardList.vue';
+
+export default {
+  components: {
+    NewCardForm,
+    CardList,
+  },
+  methods: {
+    refreshCards() {
+      this.$refs.cardList.cards = [];
+      this.$refs.cardList.created();
+    },
+  },
+  mounted() {
+    this.refreshCards();
+  }
+};
+</script>
 
 <style scoped>
 header {
